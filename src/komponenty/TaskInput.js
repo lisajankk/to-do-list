@@ -26,6 +26,7 @@ export const TaskInput = ({addTodo}) => {
                 <span>ADD</span>
             </div>
         </button> 
+        
     </form>
   )
 }

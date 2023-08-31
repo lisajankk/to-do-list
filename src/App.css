@@ -1,34 +1,316 @@
+* {
+  font-family: 'Century Gothic';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(0 13 32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  font-size: 1.75rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p {     
+    font-size: 1.2rem; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  font-size: 1.25rem; 
+  background-color: transparent;
+  color:rgb(96 165 250);
+  border-color: transparent;
+}
+
+.hrLine {
+  border: 1px solid rgb(96 165 250); 
+}
+
+.hrScrollbar{
+  border: 1px solid rgb(1, 28, 70);
+}
+
+.TaskListSm {
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.scroll-area{
+  max-height: 500px; 
+  overflow-y: auto; 
+}
+
+
+.TaskListGen {
+  margin-top: 8rem;
+  padding-top: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgb(96 165 250);
+  box-shadow: 0px 0px 20px 10px rgba(64,138,247,.2); 
+}
+
+.TaskInput {
+  width: 100%; 
+}
+
+.addtask-input {
+  outline: none;
+  background: none;
+  border: 1px solid rgb(145 64 247);
+  height: 2.25rem;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  margin:0.15rem;
+  margin-right: 1rem;  
+  width: 28rem;
+  color: #ffffff;
+  font-size: 1.1rem; 
+}
+
+.addtask-input-edit{
+  width: 26rem;
+}
+
+.addtask-input::placeholder {
+  color: #ffffff4d;
+  font-size: 1.1rem; 
+}
+
+.addtask-btn {
+  background: rgb(145, 64, 247);
+  color: #ffffff;
+  border: none;
+  border-radius: 2px;
+  padding: 0.3rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: background-color 0.3s ease-in-out;  
+  width:4.5rem;
+}
+
+.addtask-btn:hover {
+  background-color: rgb(96 165 250); 
+  box-shadow: 0px 0px 20px 10px rgba(64,138,247,.2);
+}
+
+.Task {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: rgba(146, 64, 247, 0.575);
+  transition: background-color 0.3s ease-in-out;  
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  width: 480px;
+}
+
+.checkbox {
+  margin-right: 1rem; 
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+.completed {
+  color: #a391d1;
+  text-decoration: line-through;
+}
+
+.completed-task {
+  background: rgba(94, 47, 156, 0.452);
+}
+
+.delete-list{
+  color:rgba(255, 255, 255, 0.774);
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;  
+  margin-left: 12.5rem;
+}
+
+.sort-list-line{
+  color:rgb(96 165 250);
+  font-size: 1rem; 
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;  
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+
+.sort-list, .sort-list-active{
+  margin-right: 1rem;
+  margin-left: 0.75rem;
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease-in-out;  
+  text-decoration: none;
+  text-underline-offset: 0.5rem;
+}
+
+.sort-list-active{
+  color: rgb(145 64 247);
+  text-decoration: underline;
+}
+
+.sort-list:hover{
+  color: rgb(145 64 247);
+  text-decoration: underline; 
+}
+
+.delete-list:hover{
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+
+.todo-header {
+  display: flex;
+  align-items: center; 
+}
+
+.itx-img{
+  width: 35px;
+  height: 40px;
+  overflow: hidden;
+  margin-left: 210px;
+}
+
+.itx-img img {
+  width: 150px;
+  height: 50px;
+  margin: -10px 0 0 -39px;
+}
+
+.title-container {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.center {
+  width: 90px;
+  height: 35px;
+  position: relative;
+  border-radius: 2px;
+}
+
+.btn {
+  margin-top: 15px;
+  width: 90px;
+  height: 35px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgb(96 165 250);
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+.svg-add-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn:hover {
+  transition: 1s ease-in-out;
+  background:  rgb(96 165 250);
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
   color: white;
+  font-size: 18px;
+  font-weight: 100;
 }
 
-.App-link {
-  color: #61dafb;
+.scrollbar {
+  height: 420px;
+  width:555px;
+  position: relative; 
+  overflow: auto;
+  padding-left: 0.25rem;
 }
 
-@keyframes App-logo-spin {
+.scrollbar .task {
+  padding-right: 2rem; 
+}
+
+.scroll-content {
+  padding-left: 2rem; 
+}
+
+#scrollbar6::-webkit-scrollbar {
+  width: 5px;
+}
+
+#scrollbar6::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #cacaca;
+  border: 1px solid #cacaca;
+}
+
+#scrollbar6::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgb(12, 46, 87);
+}
+
+#scrollbar5::-webkit-scrollbar {
+  background-color: #000;
+  width: 8px;
+  border-radius: 10px;
+}
+
+#scrollbar5::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+#scrollbar5::-webkit-scrollbar-thumb {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, #a520ca), color-stop(1, #2681cc));
+  border-radius: 10px;
+}
+
+.spinner:hover {
+  animation: spin 2s linear infinite;
+  transform-origin: center center;
+}
+
+.shaker:hover {
+  animation: shake 2s linear infinite;
+  transform-origin: center center;
+}
+
+
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
@@ -36,3 +318,16 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90%, 50%, 10% {
+    transform: translateY(-4px);
+  }
+  20%, 40%, 60%, 80%, 40%, 20%{
+    transform: translateY(4px);
+  }
+}
+
